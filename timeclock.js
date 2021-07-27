@@ -20,58 +20,39 @@ $('document').ready(function(){
                     hours = hours;
                 } h2.textContent = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
             }, 1000);
-
             function addZero(time) {
-
                 return(time < 10) ? "0" + time : time;
-
             }
-
             function hoursMenu() {
-
                 var select = document.getElementById('alarmhrs');
                 var hrs = 12
-
                 for (i = 1; i <= hrs; i ++) {
                     select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
-
                 }
             }
             hoursMenu();
-
             function minMenu() {
-
                 var select = document.getElementById('alarmmins');
                 var min = 59;
-
                 for (i = 0; i <= min; i ++) {
                     select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
                 }
             }
             minMenu();
-
             function secMenu() {
-
                 var select = document.getElementById('alarmsecs');
                 var sec = 59;
-
                 for (i = 0; i <= sec; i ++) {
                     select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
                 }
             }
             secMenu();
 
-
             function alarmSet() {
-
                 var hr = document.getElementById('alarmhrs');
-
                 var min = document.getElementById('alarmmins');
-
                 var sec = document.getElementById('alarmsecs');
-
                 var ap = document.getElementById('ampm');
-
 
                 var selectedHour = hr.options[hr.selectedIndex].value;
                 var selectedMin = min.options[min.selectedIndex].value;
@@ -86,7 +67,6 @@ $('document').ready(function(){
                 document.getElementById('alarmsecs').disabled = true;
                 document.getElementById('ampm').disabled = true;
 
-
                 // when alarmtime is equal to currenttime then play a sound
                 var h2 = document.getElementById('clock');
 
@@ -95,17 +75,12 @@ $('document').ready(function(){
     */
 
                 setInterval(function () {
-
-                    var date = new Date();
-
+                   var date = new Date();
                     var hours = (12 - (date.getHours()));
                     // var hours = date.getHours();
-
                     var minutes = date.getMinutes();
-
                     var seconds = date.getSeconds();
-
-                    var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
+                   var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
 
 
                     // convert military time to standard time
